@@ -12,7 +12,7 @@ contract CounterScript is Script {
     function run() public {
         vm.startBroadcast();
 
-        contrato = new PropiedadIntelectual(msg.sender);
+        contrato = new PropiedadIntelectual();
 
         vm.stopBroadcast();
     }
