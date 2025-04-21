@@ -17,7 +17,7 @@ contract PropiedadIntelectual is ERC721 {
         string nombrePropiedadIntelectual; // Nombre de la propiedad (ej: "Investigacion sobre...")
         address propietario; // Dirección del dueño (wallet)
         bytes hashContenido; // Huella digital única del contenido (como una firma digital)
-        uint256 fechaRegistro; // Fecha de registro (timestamp en segundos)
+        uint256 fechaRegistro; // Fecha de registro (unix timestamp en segundos)
         address[] colaboradores; // Lista de colaboradores/coautores de la propiedad
         uint32 tipoPI; // Tipo de propiedad
         uint8 estado; // Estado actual (0: Inactivo , 1: Activo)
@@ -45,7 +45,6 @@ contract PropiedadIntelectual is ERC721 {
     function crearPropiedadIntelectual(
         string memory _nombrePropiedadIntelectual, // Nombre de la propiedad
         bytes memory _hashContenido, // Huella digital del contenido
-        uint256 _fechaRegistro, // Fecha de registro
         address[] memory _colaboradores, // Lista de colaboradores
         uint32 _tipoPI // Tipo de propiedad
     ) public returns (uint256 tokenId) {
@@ -54,7 +53,7 @@ contract PropiedadIntelectual is ERC721 {
             nombrePropiedadIntelectual: _nombrePropiedadIntelectual,
             propietario: msg.sender, // msg.sender es quien llama a la función (dueño)
             hashContenido: _hashContenido,
-            fechaRegistro: _fechaRegistro,
+            fechaRegistro: block.timestamp,
             colaboradores: _colaboradores,
             tipoPI: _tipoPI,
             estado: 1 // 1 = Activo por defecto
