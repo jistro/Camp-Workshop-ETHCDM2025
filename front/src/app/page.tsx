@@ -4,6 +4,8 @@ import { InfoList } from "@/components/InfoList";
 import { ActionButtonList } from "@/components/ActionButtonList";
 import Image from 'next/image';
 
+const CONTRACT_ADDRESS = "0x725E60Adb60332D8C47d9FDA860ff34dD57ABA25";
+
 export default function Home() {
 
   return (
